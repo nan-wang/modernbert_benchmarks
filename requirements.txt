@@ -1,0 +1,4 @@
+sentence-transformers
+datasets
+flash-attention
+accelerate
