@@ -9,7 +9,6 @@ import sys
 import tarfile
 from datetime import datetime
 from shutil import copyfile
-# import dotenv
 
 import tqdm
 from torch.utils.data import DataLoader, Dataset
@@ -17,15 +16,14 @@ from torch.utils.data import DataLoader, Dataset
 from sentence_transformers import InputExample, LoggingHandler, SentenceTransformer, losses, models, util
 
 
-# dotenv.load_dotenv()
-#### Just some code to print debug information to stdout
 logging.basicConfig(
     format="%(asctime)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S", level=logging.INFO, handlers=[LoggingHandler()]
 )
 #### /print debug information to stdout
 # CUDA_VISIBLE_DEVICES=6,7 accelerate launch --num_processes 2 --main_process_port 29502 train_bi-encoder_margin-mse.py --model_name=answerdotai/ModernBERT-large --epochs=1 --train_batch_size=16
-# CUDA_VISIBLE_DEVICES=6 python train_bi-encoder_margin-mse.py --model_name=sentence-transformers/nli-roberta-large --epochs=1 --train_batch_size=64 --use_pre_trained_model
-# CUDA_VISIBLE_DEVICES=7 python train_bi-encoder_margin-mse.py --model_name=bwang0911/test-jina-xlm-roberta-ft --epochs=1 --train_batch_size=64 --use_pre_trained_model
+# CUDA_VISIBLE_DEVICES=7 python train_bi-encoder_margin-mse.py --model_name=jinaai/jina-xlm-roberta-large-rope-8k --epochs=1 --train_batch_size=64 --use_pre_trained_model
+# CUDA_VISIBLE_DEVICES=6 python train_bi-encoder_margin-mse.py --model_name=sentence-transformers/nli-roberta-large --epochs=1 --train_batch_size=64 --use_pre_trained_model max_seq_length=1024
+# CUDA_VISIBLE_DEVICES=6 python train_bi-encoder_margin-mse.py --model_name=answerdotai/ModernBERT-large --epochs=1 --train_batch_size=64 --use_pre_trained_model max_seq_length=1024
 
 
 parser = argparse.ArgumentParser()
